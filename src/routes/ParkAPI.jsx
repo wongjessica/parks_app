@@ -31,7 +31,6 @@ function ParkAPI() {
 
         {parks.map(park => (
           <li key={park.id}>
-            <h2>{park.name}</h2>
 
             {Object.entries(parkCountsByCategory).map(([category, count]) => (
             <li key={category}>
