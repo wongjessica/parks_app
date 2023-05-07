@@ -28,15 +28,18 @@ function ParkAPI() {
       <h1>Parks</h1>
 
       <ul>
+      <h2>Park Counts by Category:</h2>
 
         {parks.map(park => (
           <li key={park.id}>
 
             {Object.entries(parkCountsByCategory).map(([category, count]) => (
             <li key={category}>
-                {category}: {count}
+                <b>{category}</b>: {count}
             </li>
             ))}
+
+            <br></br>
 
             <ul>
               {park.parks.map(p => (
@@ -45,7 +48,7 @@ function ParkAPI() {
                   <p>States: {p.states}</p>
                   <p>Park Code: {p.parkCode}</p>
                   <p>Designation: {p.designation}</p>
-                  <p>URL: <a href={p.url}>{p.url}</a></p>
+                  <p>Website: <a href={p.url}>{p.url}</a></p>
                 </li>
               ))}
             </ul>
