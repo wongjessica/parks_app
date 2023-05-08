@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import ListGroup from 'react-bootstrap/ListGroup';
 
 /* First defines a functional component ParkAPI with const arrays parks, setParks
 then creates a function to count all the parks by its category using the reduce method. Note: acc = accumulation
@@ -18,7 +18,11 @@ function ParkAPI() {
     return acc;
   }, {});
 
-  // Fetching API Data inside a component using a useEffect() hook. 
+  /* Fetching API Data inside a component using a useEffect() hook. 
+  Makes a fetch request to the National Parks API.
+  setParks is called with the data.data property, which sets it to the array of parks.
+  Then if there are any errors, the 'catch' statement logs the error
+  */
   useEffect(() => {
     fetch('https://developer.nps.gov/api/v1/activities/parks?api_key=q3rOnLMk9ojhMdKRdF8nQeR1UsREJwdHMRgv05Ws')
       .then(res => res.json())
@@ -29,6 +33,7 @@ function ParkAPI() {
 /* Displaying the API data using JavaScript XML. 
 We first render the park counts by category.
 And then we display the rest of the park data using the map function to iterate over the parks array.
+
 */
 
   return (
@@ -43,9 +48,11 @@ And then we display the rest of the park data using the map function to iterate 
           <li key={park.id}>
 
             {Object.entries(parkCountsByCategory).map(([category, count]) => (
-            <li key={category}>
-                <b>{category}</b>: {count}
-            </li>
+            <ListGroup>
+                <li key={category}>
+                <ListGroup.Item><b>{category}</b>: {count}</ListGroup.Item>
+                </li>
+            </ListGroup>
             ))}
 
             <br></br>
