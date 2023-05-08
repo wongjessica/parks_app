@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
+import Card from 'react-bootstrap/Card';
 
 /* First defines a functional component ParkAPI with const arrays parks, setParks
 then creates a function to count all the parks by its category using the reduce method. Note: acc = accumulation
@@ -38,11 +39,12 @@ And then we display the rest of the park data using the map function to iterate 
 
   return (
     <div>
-
-      <h1>Parks</h1>
+    
+      <br></br>  
+      <h1>Parks Count by Category:</h1>
+      <br></br>
 
       <ul>
-      <h2>Park Counts by Category:</h2>
 
         {parks.map(park => (
           <li key={park.id}>
@@ -50,24 +52,32 @@ And then we display the rest of the park data using the map function to iterate 
             {Object.entries(parkCountsByCategory).map(([category, count]) => (
             <ListGroup>
                 <li key={category}>
-                <ListGroup.Item><b>{category}</b>: {count}</ListGroup.Item>
+                <ListGroup.Item variant="success" style={{ maxWidth: "1450px" }}>
+                    <b>{category}</b>: {count}
+                </ListGroup.Item>
                 </li>
             </ListGroup>
             ))}
 
             <br></br>
 
-            <ul>
+            <h2>All National Parks Info:</h2>    
+            <br></br>
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
               {park.parks.map(p => (
-                <li key={p.parkCode}>
-                  <h3>{p.fullName}</h3>
-                  <p>States: {p.states}</p>
-                  <p>Park Code: {p.parkCode}</p>
-                  <p>Designation: {p.designation}</p>
-                  <p>Website: <a href={p.url}>{p.url}</a></p>
-                </li>
+                <div key={p.parkCode}>
+                <Card style={{ width: '20rem' }}>
+                    <Card.Body>
+                        <Card.Title><h3>{p.fullName}</h3></Card.Title>
+                        <p>States: {p.states}</p>
+                        <p>Park Code: {p.parkCode}</p>
+                        <p>Designation: {p.designation}</p>
+                        <p>Website: <a href={p.url}>{p.url}</a></p>
+                    </Card.Body>
+                </Card>
+                </div>
               ))}
-            </ul>
+            </div>
 
           </li>
         ))}
