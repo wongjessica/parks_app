@@ -4,6 +4,7 @@ Author: Jessica Wong
 **Steps to run this application:**
 1) Clone the repository 
 2) Once its cloned, cd into the repository 'parks_app' and run: `npm start`
+3) The project should be hosted on http://localhost:3000/
 
 ## What it does
 
