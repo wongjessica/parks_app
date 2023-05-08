@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
+
+/* First defines a functional component ParkAPI with const arrays parks, setParks
+then creates a function to count all the parks by its category using the reduce method. Note: acc = accumulation
+*/
 function ParkAPI() {
   const [parks, setParks] = useState([]);
 
@@ -14,6 +18,7 @@ function ParkAPI() {
     return acc;
   }, {});
 
+  // Fetching API Data inside a component using a useEffect() hook. 
   useEffect(() => {
     fetch('https://developer.nps.gov/api/v1/activities/parks?api_key=q3rOnLMk9ojhMdKRdF8nQeR1UsREJwdHMRgv05Ws')
       .then(res => res.json())
@@ -21,6 +26,10 @@ function ParkAPI() {
       .catch(error => console.log(error));
   }, []);
 
+/* Displaying the API data using JavaScript XML. 
+We first render the park counts by category.
+And then we display the rest of the park data using the map function to iterate over the parks array.
+*/
 
   return (
     <div>

@@ -4,6 +4,10 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
+/*
+Using Bootstrap to build a NavBar by importing NavBar components
+*/
+
 function NavvBar() {
   return (
     <Navbar bg="primary" expand="lg">

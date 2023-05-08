@@ -5,7 +5,7 @@ import ParkAPI from './routes/ParkAPI.jsx';
 import NavvBar from './NavvBar.jsx';
 import './App.scss';
 
-
+// renders the NavvBar and ParkAPI components nested within a div 
 function App() {
   return (
     <div className="App">
