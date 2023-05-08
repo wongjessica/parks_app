@@ -69,9 +69,9 @@ And then we display the rest of the park data using the map function to iterate 
                 <Card style={{ width: '20rem' }}>
                     <Card.Body>
                         <Card.Title><h3>{p.fullName}</h3></Card.Title>
+                        <Card.Subtitle className="mb-2 text-muted"><p>Designation: {p.designation}</p></Card.Subtitle>
                         <p>States: {p.states}</p>
-                        <p>Park Code: {p.parkCode}</p>
-                        <p>Designation: {p.designation}</p>
+                        <p>Park Code: <i>{p.parkCode}</i></p>
                         <p>Website: <a href={p.url}>{p.url}</a></p>
                     </Card.Body>
                 </Card>
